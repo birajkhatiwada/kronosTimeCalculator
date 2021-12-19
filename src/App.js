@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './App.css'
 
 function App() {
@@ -37,6 +37,10 @@ function App() {
 
 
 
+  useEffect(()=>{
+    console.log(clockInMinute);
+  }, [beforeLunchHour])
+
   // function handlesetClockOutHour(){
   //   setClockOutHour('2');
   // }
@@ -45,18 +49,19 @@ function App() {
 
     if(Number(e.target.value) < 7){
       setClockInHour(militaryTimeMap.get(Number(e.target.value)));
-    }
-    else{
+    }else{
       setClockInHour(Number(e.target.value));
+
     }
+    
     // console.log(clockOut + clockInHour)
     // setClockOutHour(Number(e.target.value)+lunchInHour+lunchOutHour)
     // console.log(clockOut)
   }
 
   function handleSetClockInMinute(e){
-    console.log(clockInHour);
     setClockInMinute(Number(e.target.value));
+
   }
 
   function handleSetLunchInHour(e){
@@ -81,28 +86,52 @@ function App() {
     setLunchOutMinute(Number(e.target.value));
   }
 
+
+
+
+
+
   function handleGenerateClockOut(){
     if(clockInHour === 0 || clockInMinute === 0 || lunchInHour === 0 || lunchInMinute === 0 || lunchOutHour === 0 || lunchInMinute === 0 ){
       console.log("error")
     }
 
-    // console.log(lunchInHour);
+    var tempClockInHour = clockInHour;
+    var tempClockInMinute = clockInMinute;
 
+    var value = 0;
+    //check for the edge case (8:55am to 9:05 is taken as just 9:00)
+    if(clockInHour === 8){
+      if(clockInMinute > 54){
+        tempClockInHour = 9;
+        tempClockInMinute = 0;
+        console.log(tempClockInMinute);
+      }
+    }
+
+    console.log(clockInMinute);
+    if(clockInHour === 9){
+      if(clockInMinute <= 5){
+        console.log("here");
+        tempClockInMinute = 0;
+      }
+    }
     
-
     // time before the lunch
-    console.log(lunchOutHour);
-    var [timeBeforeLunchInHour, timeBeforeLunchInMinute] = subtractTime(60*lunchOutHour + lunchOutMinute, 60*clockInHour + clockInMinute);
+    var [timeBeforeLunchInHour, timeBeforeLunchInMinute] = subtractTime(60*lunchOutHour + lunchOutMinute, 60*tempClockInHour + tempClockInMinute);
     console.log(timeBeforeLunchInHour, timeBeforeLunchInMinute);
     setBeforeLunchHour(timeBeforeLunchInHour);
     setBeforeLunchMinute(timeBeforeLunchInMinute);
     
+    console.log(beforeLunchHour, beforeLunchMinute);
+
     //calculate time needed after the lunch
     var [timeAfterLunchInHour, timeAfterLunchInMinute] = subtractTime(480, timeBeforeLunchInHour*60+timeBeforeLunchInMinute);
     console.log(timeAfterLunchInHour, timeAfterLunchInMinute);
     setAfterLunchHour(timeAfterLunchInHour);
     setAfterLunchMinute(timeAfterLunchInMinute);
     
+    console.log(afterLunchHour, afterLunchMinute);
 
     //cacluate the total hours worked
     var [totalhours, totalminutes] = addTime((timeBeforeLunchInHour+timeAfterLunchInHour)*60, timeBeforeLunchInMinute+timeAfterLunchInMinute);
@@ -110,6 +139,7 @@ function App() {
     setTotalHours(totalhours);
     setTotalMinutes(totalminutes);
 
+    console.log(totalHours, totalMinutes);
 
     //calculate the clock out time
     var [clockoutTimeInHour, clockoutTimeInMinute] = addTime(timeAfterLunchInHour*60+timeAfterLunchInMinute, lunchInHour*60+lunchInMinute);
@@ -119,6 +149,8 @@ function App() {
       setClockOutHour(clockoutTimeInHour);
     }
     setClockOutMinute(clockoutTimeInMinute);
+
+    console.log(clockInMinute);
   }
 
 
@@ -161,6 +193,8 @@ function App() {
           <p>Time Before Lunch: {beforeLunchHour}hours {beforeLunchMinute}minutes</p>
           <p>Time After Lunch: {afterLunchHour}hours {afterLunchMinute}minutes</p>
           <p>Total Hours: {totalHours} hours {totalMinutes} minutes</p>
+
+          <p>{clockInHour} {clockInMinute}</p>
           {/* <input type="number" className="hour" value={clockOutHour} placeholder="ClockOut Hour"/>
           <input type="number" className="minute" value={clockOutMinute} placeholder="ClockOut Min" /> */}
       </div>
