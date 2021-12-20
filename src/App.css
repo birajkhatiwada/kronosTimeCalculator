@@ -80,10 +80,22 @@ button:hover{
 }
 
 
-.about{
-    margin: 20vh 0  0;
+.footer{
+    display: inline-flex;
+    margin-top: 40vh;
     padding-left: 10vw;
     /* height: 25vh; */
-    /* background-color: black; */
-    /* color: blanchedalmond; */
 }
+
+.email{
+    padding-left: 10px;
+    animation: bouncing 1.5s infinite ease-in-out;
+}
+
+
+@keyframes bouncing {
+    0% {padding-left: 10px;}  
+    50% {padding-left: 17px;}  
+    100% {padding-left: 10px;}  
+  }
+

@@ -376,13 +376,11 @@ function App() {
             </div>
           </div>
         </div>
-        
       </div>
-     
-      {/* <div className="about">
-        <p>What works:</p>
-        <p>Use this to calculate what time to clock out </p>
-      </div> */}
+      <div className="footer">
+        <p>have any feedbacks or questions?</p> 
+        <p className="email">bkhatiwada@tesla.com</p>
+      </div>
     </div>
   );
 }
