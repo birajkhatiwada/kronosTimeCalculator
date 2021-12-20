@@ -81,10 +81,16 @@ button:hover{
 
 
 .footer{
-    display: inline-flex;
-    margin-top: 40vh;
+    /* display: flex;
+    justify-content:flex-end; */
+    margin: 40vh 0 20px 0;
     padding-left: 10vw;
     /* height: 25vh; */
+}
+
+.contact{
+    display: flex;
+    margin-right: auto;
 }
 
 .email{
@@ -92,10 +98,31 @@ button:hover{
     animation: bouncing 1.5s infinite ease-in-out;
 }
 
+.social-media{
+    margin-right: 30vw;
+    cursor: pointer;
+}
+
+.linkedin{
+    padding-left: 5px;
+}
+
+.instagram{
+    padding-left: 5px;
+}
+
+svg{
+    transition: 100ms transform ease-in-out;
+}
+
+svg:hover{
+    transform: scale(1.15);
+}
+
 
 @keyframes bouncing {
     0% {padding-left: 10px;}  
     50% {padding-left: 17px;}  
     100% {padding-left: 10px;}  
-  }
+}
 
