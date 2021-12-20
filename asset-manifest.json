@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kronosTimeCalculator/static/css/main.808c72b6.css",
-    "main.js": "/kronosTimeCalculator/static/js/main.3db1fc07.js",
+    "main.css": "/kronosTimeCalculator/static/css/main.e05a6b92.css",
+    "main.js": "/kronosTimeCalculator/static/js/main.9d1bff45.js",
     "index.html": "/kronosTimeCalculator/index.html",
-    "main.808c72b6.css.map": "/kronosTimeCalculator/static/css/main.808c72b6.css.map",
-    "main.3db1fc07.js.map": "/kronosTimeCalculator/static/js/main.3db1fc07.js.map"
+    "main.e05a6b92.css.map": "/kronosTimeCalculator/static/css/main.e05a6b92.css.map",
+    "main.9d1bff45.js.map": "/kronosTimeCalculator/static/js/main.9d1bff45.js.map"
   },
   "entrypoints": [
-    "static/css/main.808c72b6.css",
-    "static/js/main.3db1fc07.js"
+    "static/css/main.e05a6b92.css",
+    "static/js/main.9d1bff45.js"
   ]
 }
