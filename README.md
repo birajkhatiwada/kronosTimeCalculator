@@ -1,3 +1,16 @@
+![kronosTimeCal](https://user-images.githubusercontent.com/22403672/167360869-b65a35fd-502d-4b41-933c-e3d2ec953103.png)
+
+![kronosTimeCal2](https://user-images.githubusercontent.com/22403672/167360894-e0e43f1d-94f4-460d-9a27-3a624a12b6d8.png)
+
+#Goal
+Goal of the app is to calculate the clockout time based of Clock in, Lunch in, and Lunch out time to make the total shift 8 hours.
+
+# Rules
+Clock in time starts from 8:55am\
+Clock in from 8:55am to 9:05am counts as 9:00am\
+Must have 4 hours work time before lunch out\
+Lunch Out must be at least 30 minutes\
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
