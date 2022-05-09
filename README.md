@@ -2,7 +2,7 @@
 
 ![kronosTimeCal2](https://user-images.githubusercontent.com/22403672/167360894-e0e43f1d-94f4-460d-9a27-3a624a12b6d8.png)
 
-#Goal
+# Goal
 Goal of the app is to calculate the clockout time based of Clock in, Lunch in, and Lunch out time to make the total shift 8 hours.
 
 # Rules
